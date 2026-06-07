@@ -1,61 +1,202 @@
-function copyAccount(account){
-
-navigator.clipboard.writeText(account);
-
-alert("계좌번호가 복사되었습니다.");
-
-}
+/* =========================
+   계좌 복사
+========================= */
 
 function copyAccount(account){
 
-navigator.clipboard.writeText(account);
+    navigator.clipboard.writeText(account)
+    .then(() => {
 
-alert("계좌번호가 복사되었습니다.");
+        alert("계좌번호가 복사되었습니다.");
+
+    })
+    .catch(() => {
+
+        alert(account);
+
+    });
+
+}
+/* =====================
+   스크롤 애니메이션
+===================== */
+
+const fadeElements =
+document.querySelectorAll(".fade-up");
+
+const observer =
+new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},
+
+{
+threshold:0.15
+}
+
+);
+
+fadeElements.forEach(el=>{
+
+observer.observe(el);
+
+});
+
+
+
+/* =========================
+   계좌 팝업
+========================= */
+
+function openModal(id){
+
+    const modal =
+    document.getElementById(id);
+
+    if(modal){
+
+        modal.style.display = "flex";
+
+    }
+
+}
+
+function closeModal(id){
+
+    const modal =
+    document.getElementById(id);
+
+    if(modal){
+
+        modal.style.display = "none";
+
+    }
 
 }
 
 
-/* 갤러리 확대 */
+/* =========================
+   갤러리 팝업
+========================= */
 
-const galleryImages =
-document.querySelectorAll(".gallery-img");
+document.addEventListener("DOMContentLoaded", () => {
 
-const lightbox =
-document.getElementById("lightbox");
+    const galleryImages =
+    document.querySelectorAll(".gallery-img");
 
-const lightboxImg =
-document.getElementById("lightboxImg");
+    const galleryModal =
+    document.getElementById("galleryModal");
 
-const closeBtn =
-document.getElementById("closeBtn");
+    const modalImage =
+    document.getElementById("modalImage");
 
+    const galleryClose =
+    document.getElementById("galleryClose");
 
-galleryImages.forEach(img=>{
+    const galleryCount =
+    document.getElementById("galleryCount");
 
-img.addEventListener("click",()=>{
+    const prevBtn =
+    document.getElementById("prevBtn");
 
-lightbox.style.display="flex";
+    const nextBtn =
+    document.getElementById("nextBtn");
 
-lightboxImg.src=img.src;
+    if(
+        !galleryModal ||
+        !modalImage ||
+        !galleryClose ||
+        !galleryCount ||
+        !prevBtn ||
+        !nextBtn
+    ){
+        return;
+    }
 
-});
+    let currentIndex = 0;
 
-});
+    function showImage(index){
 
+        modalImage.src =
+        galleryImages[index].src;
 
-closeBtn.addEventListener("click",()=>{
+        galleryCount.innerText =
+        `${index + 1} / ${galleryImages.length}`;
 
-lightbox.style.display="none";
+    }
 
-});
+    galleryImages.forEach((img,index)=>{
 
+        img.addEventListener("click",()=>{
 
-lightbox.addEventListener("click",(e)=>{
+            currentIndex = index;
 
-if(e.target===lightbox){
+            showImage(currentIndex);
 
-lightbox.style.display="none";
+            galleryModal.style.display = "flex";
 
-}
+        });
+
+    });
+
+    galleryClose.addEventListener("click",()=>{
+
+        galleryModal.style.display = "none";
+
+    });
+
+    galleryModal.addEventListener("click",(e)=>{
+
+        if(e.target === galleryModal){
+
+            galleryModal.style.display = "none";
+
+        }
+
+    });
+
+    prevBtn.addEventListener("click",(e)=>{
+
+        e.stopPropagation();
+
+        currentIndex--;
+
+        if(currentIndex < 0){
+
+            currentIndex =
+            galleryImages.length - 1;
+
+        }
+
+        showImage(currentIndex);
+
+    });
+
+    nextBtn.addEventListener("click",(e)=>{
+
+        e.stopPropagation();
+
+        currentIndex++;
+
+        if(currentIndex >= galleryImages.length){
+
+            currentIndex = 0;
+
+        }
+
+        showImage(currentIndex);
+
+    });
 
 });

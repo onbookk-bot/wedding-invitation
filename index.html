@@ -26,11 +26,11 @@ rel="stylesheet">
 
     <!-- 메인 비주얼 -->
 
-    <section class="hero">
+    <section class="hero ">
 
         <img src="images/hero.jpg" alt="웨딩사진">
 
-        <div class="hero-content">
+        <div class="hero-content ">
 
             <p class="sub-title">
                 Wedding Invitation
@@ -56,7 +56,7 @@ rel="stylesheet">
 
     <section class="section invitation">
 
-        <h2>Wedding Invitation</h2>
+        <h2>Invitation Message</h2>
 
         <p>
 
@@ -160,6 +160,8 @@ rel="stylesheet">
   <img src="images/gallery26.jpg" class="gallery-img">
   <img src="images/gallery27.jpg" class="gallery-img">
   <img src="images/gallery28.jpg" class="gallery-img">
+  <img src="images/gallery29.jpg" class="gallery-img">
+  <img src="images/gallery30.jpg" class="gallery-img">
 
 </div>
 
@@ -179,28 +181,40 @@ rel="stylesheet">
                 서울시 강남구 강남대로 262<br>
                 캠코양재타워 B1층
             </p>
+<br>
+  <p>
+    <img src="images/map2.png" width="100%"
+height="auto">
+
+
+  </p>
+
+<br>
+
 
             <hr>
-
+<br>
             <p>
-                🚇 양재역 3번 출구 도보 2분
+                🚇<b>지하철 안내</b> <br>양재역 3번 출구 도보 2분<br><br>
             </p>
 
             <p>
-                🚌 간선 140, 314, 400, 402, 421
-            </p>
+                🚌 <b>버스 안내</b>
+                <br>간선 140, 314, 400, 402, 421, 440, 441, 452, 470, 641, 741, 917
+         <br><br>   </p>
 
             <p>
-                🚌 직행 1550, 1570, 3002, 3007
-            </p>
+           직행 1550, 1570, 3002, 3007, 3030, 3100, 4401, 4402, 9700
+          <br><br>  </p>
 
             <p>
-                🚗 2시간 무료 주차
+                🚗 <b>주차 안내</b><br>도곡동 캠코 양재타워 주차장(2시간 무료 주차)<br>
+인포데스크에서 차량번호 등록 
             </p>
 
             <a
             class="map-btn"
-            href="여기에_카카오맵주소"
+            href="https://place.map.kakao.com/522062793"
             target="_blank">
 
             카카오맵 길찾기
@@ -213,47 +227,162 @@ rel="stylesheet">
 
     <!-- 계좌 -->
 
-    <section class="section">
+   <section class="section">
 
-        <h2>마음 전하실 곳</h2>
+    <h2>
+        신랑 & 신부에게 마음 전하기
+    </h2>
 
-        <div class="account-box">
+    <p class="account-sub">
+        축복의 의미로 축의금을 전달해보세요.
+    </p>
 
-            <h3>신랑 측</h3>
+    <button
+    class="account-main-btn"
+    onclick="openModal('groomModal')">
 
-            <button onclick="copyAccount('018-05-0028-080')">
-                아버지 임상순 계좌 복사
-            </button>
+        신랑 측 계좌번호
 
-            <button onclick="copyAccount('1002-211-571185')">
-                어머니 김희정 계좌 복사
-            </button>
+    </button>
 
-            <button onclick="copyAccount('110-500-971413')">
-                신랑 임유빈 계좌 복사
-            </button>
+<div id="groomModal" class="modal">
 
-        </div>
+  <div class="modal-content">
 
-        <div class="account-box">
+    <h3>신랑 측 계좌번호</h3>
 
-            <h3>신부 측</h3>
+    <div class="bank-row">
 
-            <button onclick="copyAccount('011-2020-423-0313')">
-                아버지 최수열 계좌 복사
-            </button>
+      <strong>아버지 임상순</strong>
 
-            <button onclick="copyAccount('302-0215-5517-91')">
-                어머니 유민숙 계좌 복사
-            </button>
+      <p>국민은행 018-05-0028-080</p>
 
-            <button onclick="copyAccount('110-288-708057')">
-                신부 최고은 계좌 복사
-            </button>
+      <button
+      onclick="copyAccount('018-05-0028-080')">
 
-        </div>
+      계좌번호 복사
 
-    </section>
+      </button>
+
+    </div>
+
+    <div class="bank-row">
+
+      <strong>어머니 김희정</strong>
+
+      <p>우리은행 1002-211-571185</p>
+
+      <button
+      onclick="copyAccount('1002-211-571185')">
+
+      계좌번호 복사
+
+      </button>
+
+    </div>
+
+    <div class="bank-row">
+
+      <strong>신랑 임유빈</strong>
+
+      <p>신한은행 110-500-971413</p>
+
+      <button
+      onclick="copyAccount('110-500-971413')">
+
+      계좌번호 복사
+
+      </button>
+
+    </div>
+
+    <button
+    class="close-btn"
+    onclick="closeModal('groomModal')">
+
+      닫기
+
+    </button>
+
+  </div>
+
+</div>
+
+
+
+    <button
+    class="account-main-btn"
+    onclick="openModal('brideModal')">
+
+        신부 측 계좌번호
+
+    </button>
+
+    <div id="brideModal" class="modal">
+
+  <div class="modal-content">
+
+    <h3>신부 측 계좌번호</h3>
+
+    <div class="bank-row">
+
+      <strong>아버지 최수열</strong>
+
+      <p>국민은행 011-2020-423-0313</p>
+
+      <button
+      onclick="copyAccount('011-2020-423-0313')">
+
+      계좌번호 복사
+
+      </button>
+
+    </div>
+
+    <div class="bank-row">
+
+      <strong>어머니 유민숙</strong>
+
+      <p>농협은행 302-0215-5517-91</p>
+
+      <button
+      onclick="copyAccount('302-0215-5517-91')">
+
+      계좌번호 복사
+
+      </button>
+
+    </div>
+
+    <div class="bank-row">
+
+      <strong>신부 최고은</strong>
+
+      <p>신한은행 110-288-708057</p>
+
+      <button
+      onclick="copyAccount('110-288-708057')">
+
+      계좌번호 복사
+
+      </button>
+
+    </div>
+
+    <button
+    class="close-btn"
+    onclick="closeModal('brideModal')">
+
+      닫기
+
+    </button>
+
+  </div>
+
+</div>
+
+
+</section>
 
     <!-- 참석 여부 -->
 
@@ -281,7 +410,34 @@ rel="stylesheet">
 
 </div>
 
+
 <script src="script.js"></script>
+
+
+
+<div id="galleryModal">
+
+    <span id="galleryClose">
+        ×
+    </span>
+
+    <div id="galleryCount">
+        1 / 6
+    </div>
+
+    <button id="prevBtn">
+        ❮
+    </button>
+
+    <img
+    id="modalImage"
+    src="">
+
+    <button id="nextBtn">
+        ❯
+    </button>
+
+</div>
 
 </body>
 
