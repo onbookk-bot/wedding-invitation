@@ -1,358 +1,257 @@
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
 
-  background:#faf8f6;
-  color:#333;
-  font-family:
-  "Malgun Gothic",
-  sans-serif;
+background:#f8f5f2;
 
- line-height:1.7;
+font-family:
+"Noto Serif KR",
+serif;
 
- 
+color:#333;
+
+line-height:1.8;
+
 }
 
-.hero{
-  width:100%;
-  max-width:768px;
-  margin:auto;
+.container{
+
+max-width:768px;
+margin:auto;
+
 }
 
 .hero img{
-  width:100%;
-  display:block;
-  aspect-ratio:3/4;
-  object-fit:cover;
+
+width:100%;
+display:block;
+aspect-ratio:3/4;
+object-fit:cover;
+
 }
 
-.hero-text{
-  text-align:center;
-  padding:40px 20px 80px;
+.hero-content{
+
+text-align:center;
+padding:50px 20px;
+
 }
 
-.date{
-  color:#777;
-  margin-bottom:20px;
+.sub-title{
+
+letter-spacing:3px;
+color:#b69d86;
+margin-bottom:20px;
+
 }
 
 .hero h1{
-  font-size:clamp(
-    30px,
-    6vw,
-    42px
-  );
 
-  font-weight:300;
+font-size:38px;
+font-weight:300;
+margin-bottom:20px;
 
-  margin-bottom:20px;
 }
 
-.place{
-  color:#777;
+.date{
+
+color:#666;
+
 }
 
+.hall{
 
+margin-top:10px;
+color:#999;
 
+}
+
+.section{
+
+padding:80px 24px;
+
+}
+
+.section h2{
+
+text-align:center;
+margin-bottom:40px;
+font-weight:400;
+
+}
 
 .invitation{
 
-  text-align:center;
-
-  padding:
-  80px
-  24px;
+text-align:center;
 
 }
-
-.invitation h2{
-
-  font-size:28px;
-
-  font-weight:300;
-
-  margin-bottom:40px;
-
-}
-
-.invitation p{
-
-  line-height:2;
-
-  color:#555;
-
-}
-
 
 .couple{
 
-  padding:80px 24px;
-
-  text-align:center;
+text-align:center;
 
 }
 
 .person{
 
-  margin-bottom:30px;
+margin-bottom:30px;
 
 }
 
-.person h3{
+.heart{
 
-  font-size:24px;
-
-  font-weight:400;
-
-  margin-bottom:12px;
+font-size:30px;
+margin:30px 0;
+color:#c7a98f;
 
 }
 
-.person p{
+.card{
 
-  color:#777;
-
-}
-
-.divider{
-
-  margin:40px 0;
-
-  color:#b5a08d;
-
-  font-size:20px;
+background:#fff;
+padding:35px;
+border-radius:24px;
+box-shadow:0 8px 30px rgba(0,0,0,.05);
 
 }
 
-/!식장정보!/
-.wedding-info{
-
-  padding:80px 24px;
-
-}
-
-.info-card{
-
-  background:white;
-
-  border-radius:24px;
-
-  padding:40px 24px;
-
-  text-align:center;
-
-  box-shadow:
-  0 8px 30px
-  rgba(0,0,0,.05);
-
-}
-
-.info-card h2{
-
-  font-size:18px;
-
-  color:#b5a08d;
-
-  margin-bottom:30px;
-
-}
-
-.main-date{
-
-  font-size:26px;
-
-  font-weight:600;
-
-  margin-bottom:20px;
-
-}
-
-.info-card p{
-
-  line-height:2;
-
-}
-
-.location{
-
-  padding:80px 24px;
-
-}
-
-.location h2{
-
-  text-align:center;
-
-  margin-bottom:40px;
-
-}
-
-.location-card{
-
-  background:white;
-
-  border-radius:24px;
-
-  padding:30px;
-
-  box-shadow:
-  0 8px 30px
-  rgba(0,0,0,.05);
-
-}
-
-.location-card h3{
-
-  margin-bottom:20px;
-
-}
-
-.location-card p{
-
-  line-height:2;
-
-}
-
-.location-card hr{
-
-  margin:20px 0;
-
-  border:none;
-
-  border-top:1px solid #eee;
-
-}
-
-
-.account{
-
-  padding:80px 24px;
-
-}
-
-.account h2{
-
-  text-align:center;
-
-  margin-bottom:40px;
-
-}
-
-.account-card{
-
-  background:white;
-
-  border-radius:24px;
-
-  padding:24px;
-
-  margin-bottom:20px;
-
-  box-shadow:
-  0 8px 30px
-  rgba(0,0,0,.05);
-
-}
-
-.account-card h3{
-
-  margin-bottom:20px;
-
-  color:#b5a08d;
-
-}
-
-.bank-item{
-
-  margin-bottom:24px;
-
-}
-
-.bank-item p{
-
-  margin-bottom:10px;
-
-}
-
-.bank-item button{
-
-  width:100%;
-
-  border:none;
-
-  background:#d9c8b7;
-
-  padding:14px;
-
-  border-radius:999px;
-
-  cursor:pointer;
-
-}
-
-.gallery-section{
-
-  padding:80px 24px;
-
-}
-
-.gallery-section h2{
-
-  text-align:center;
-
-  margin-bottom:40px;
+.big-date{
+
+font-size:28px;
+font-weight:600;
+margin-bottom:20px;
 
 }
 
 .gallery{
 
-  display:grid;
-
-  grid-template-columns:
-  repeat(2,1fr);
-
-  gap:12px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
 
 }
 
 .gallery img{
 
-  width:100%;
-
-  display:block;
-
-  border-radius:16px;
-
-  aspect-ratio:3/4;
-
-  object-fit:cover;
+width:100%;
+aspect-ratio:3/4;
+object-fit:cover;
+border-radius:16px;
 
 }
 
-.attendance{
-
-  padding:80px 24px;
-
-  text-align:center;
-
-}
-
+.map-btn,
 .attendance-btn{
 
-  display:block;
+display:block;
+margin-top:20px;
+background:#d6c5b5;
+padding:16px;
+border-radius:999px;
+text-align:center;
+text-decoration:none;
+color:#333;
 
-  background:#d9c8b7;
+}
 
-  padding:18px;
+.account-box{
 
-  border-radius:999px;
+background:#fff;
+padding:24px;
+border-radius:24px;
+margin-bottom:20px;
 
-  text-decoration:none;
+}
 
-  color:#333;
+.account-box h3{
+
+margin-bottom:20px;
+
+}
+
+.account-box button{
+
+width:100%;
+border:none;
+background:#d6c5b5;
+padding:15px;
+border-radius:999px;
+margin-bottom:10px;
+cursor:pointer;
+
+}
+
+footer{
+
+padding:80px 20px;
+text-align:center;
+color:#999;
+
+}
+
+@media(max-width:480px){
+
+.hero h1{
+
+font-size:30px;
+
+}
+
+.big-date{
+
+font-size:22px;
+
+}
+
+}
+
+/* 갤러리 확대 */
+
+#lightbox{
+
+display:none;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.95);
+
+justify-content:center;
+align-items:center;
+
+z-index:9999;
+
+}
+
+#lightbox img{
+
+max-width:95%;
+max-height:90%;
+
+border-radius:16px;
+
+}
+
+#closeBtn{
+
+position:absolute;
+
+top:20px;
+right:25px;
+
+font-size:40px;
+
+color:white;
+
+cursor:pointer;
 
 }
