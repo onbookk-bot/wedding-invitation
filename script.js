@@ -228,14 +228,14 @@ if(isPlaying){
 bgm.pause();
 
 musicBtn.innerHTML =
-"▶";
+"🎵";
 
 }else{
 
 bgm.play();
 
 musicBtn.innerHTML =
-"⏸";
+"⬛";
 
 }
 
