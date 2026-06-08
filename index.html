@@ -9,10 +9,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta property="og:title"
-content="임유빈 ♥ 최고은 결혼합니다">
+content="8/15 유빈♥고은의 결혼식에 초대합니다.">
 
 <meta property="og:description"
-content="2026년 8월 15일 토요일 오후 12시 30분 | 브라이드밸리 단독홀">
+content="2026년 8월 15일 토요일 오후 12시 30분 | 브라이드밸리 단독홀 B1층">
 
 <meta property="og:image"
 content="https://onbookk-bot.github.io/wedding-invitation/images/hero.jpg">
@@ -34,13 +34,29 @@ rel="stylesheet">
 
 </head>
 
-<body>
+
+
+<audio id="bgm" loop>
+    <source src="music/bgm.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" class="music-btn">
+
+    <img
+        id="musicIcon"
+        src="images/on.png"
+        alt="BGM">
+
+</button>
+
+
+
 
 <div class="container">
 
     <!-- 메인 비주얼 -->
 
-    <section class="hero ">
+    <section class="hero">
 
         <img src="images/hero.jpg" alt="웨딩사진">
 
@@ -59,7 +75,8 @@ rel="stylesheet">
             </p>
 
             <p class="hall">
-                브라이드밸리 단독홀
+                브라이드밸리 단독홀 B1층
+
             </p>
 
         </div>
@@ -68,8 +85,7 @@ rel="stylesheet">
 
     <!-- 초대글 -->
 
-    <section class="section invitation">
-
+  <section class="section invitation fade-up" id="invitation">
         <h2>Invitation Message</h2>
 
         <p>
@@ -87,7 +103,7 @@ rel="stylesheet">
 
     <!-- 신랑 신부 -->
 
-    <section class="section couple">
+    <section class="section couple ">
 
         <div class="person">
 
@@ -117,7 +133,7 @@ rel="stylesheet">
 
     <!-- 예식정보 -->
 
-    <section class="section card">
+    <section class="section card fade-up">
 
         <h2>Wedding Day</h2>
 
@@ -130,7 +146,7 @@ rel="stylesheet">
         </p>
 
         <p>
-            브라이드밸리 단독홀
+            브라이드밸리 단독홀 B1층
         </p>
 
     </section>
@@ -187,9 +203,9 @@ rel="stylesheet">
 
         <h2>오시는 길</h2>
 
-        <div class="card">
+        <div class="card fade-up">
 
-            <h3>브라이드밸리 단독홀</h3>
+            <h3>브라이드밸리 단독홀 B1층</h3>
 
             <p>
                 서울시 강남구 강남대로 262<br>
@@ -236,7 +252,7 @@ rel="stylesheet">
 
     <!-- 계좌 -->
 
-   <section class="section">
+   <section class="section fade-up">
 
     <h2>
         신랑 & 신부에게 마음 전하기
@@ -431,7 +447,7 @@ rel="stylesheet">
     </span>
 
     <div id="galleryCount">
-        1 / 6
+        1 / 30
     </div>
 
     <button id="prevBtn">
@@ -450,20 +466,7 @@ rel="stylesheet">
 
 </body>
 
-<!-- 갤러리 확대 -->
 
-<div id="lightbox">
-
-  <span id="closeBtn">
-    ×
-  </span>
-
-  <img
-  id="lightboxImg"
-  src=""
-  alt="">
-
-</div>
 
 
 </html>
