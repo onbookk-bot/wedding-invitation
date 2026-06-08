@@ -1,24 +1,67 @@
 /* =========================
-   계좌 복사
+계좌 복사
 ========================= */
 
 function copyAccount(account){
 
-    navigator.clipboard.writeText(account)
-    .then(() => {
 
-        alert("계좌번호가 복사되었습니다.");
+navigator.clipboard.writeText(account)
+.then(() => {
 
-    })
-    .catch(() => {
+    alert("계좌번호가 복사되었습니다.");
 
-        alert(account);
+})
+.catch(() => {
 
-    });
+    alert(account);
+
+});
+
 
 }
+
+/* =========================
+계좌 팝업
+========================= */
+
+function openModal(id){
+
+
+const modal =
+document.getElementById(id);
+
+if(modal){
+
+    modal.style.display = "flex";
+
+}
+
+
+}
+
+function closeModal(id){
+
+
+const modal =
+document.getElementById(id);
+
+if(modal){
+
+    modal.style.display = "none";
+
+}
+
+
+}
+
+/* =========================
+페이지 로드 후 실행
+========================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
 /* =====================
-   스크롤 애니메이션
+스크롤 애니메이션
 ===================== */
 
 const fadeElements =
@@ -53,150 +96,153 @@ observer.observe(el);
 
 });
 
-
-
 /* =========================
-   계좌 팝업
+갤러리 팝업
 ========================= */
 
-function openModal(id){
+const galleryImages =
+document.querySelectorAll(".gallery-img");
 
-    const modal =
-    document.getElementById(id);
+const galleryModal =
+document.getElementById("galleryModal");
 
-    if(modal){
+const modalImage =
+document.getElementById("modalImage");
 
-        modal.style.display = "flex";
+const galleryClose =
+document.getElementById("galleryClose");
 
-    }
+const galleryCount =
+document.getElementById("galleryCount");
+
+const prevBtn =
+document.getElementById("prevBtn");
+
+const nextBtn =
+document.getElementById("nextBtn");
+
+if(
+galleryModal &&
+modalImage &&
+galleryClose &&
+galleryCount &&
+prevBtn &&
+nextBtn
+){
+
+let currentIndex = 0;
+
+function showImage(index){
+
+modalImage.src =
+galleryImages[index].src;
+
+galleryCount.innerText =
+`${index + 1} / ${galleryImages.length}`;
 
 }
 
-function closeModal(id){
+galleryImages.forEach((img,index)=>{
 
-    const modal =
-    document.getElementById(id);
+img.addEventListener("click",()=>{
 
-    if(modal){
+currentIndex = index;
 
-        modal.style.display = "none";
+showImage(currentIndex);
 
-    }
+galleryModal.style.display = "flex";
+
+});
+
+});
+
+galleryClose.addEventListener("click",()=>{
+
+galleryModal.style.display = "none";
+
+});
+
+galleryModal.addEventListener("click",(e)=>{
+
+if(e.target === galleryModal){
+
+galleryModal.style.display = "none";
 
 }
 
+});
+
+prevBtn.addEventListener("click",(e)=>{
+
+e.stopPropagation();
+
+currentIndex--;
+
+if(currentIndex < 0){
+
+currentIndex =
+galleryImages.length - 1;
+
+}
+
+showImage(currentIndex);
+
+});
+
+nextBtn.addEventListener("click",(e)=>{
+
+e.stopPropagation();
+
+currentIndex++;
+
+if(currentIndex >= galleryImages.length){
+
+currentIndex = 0;
+
+}
+
+showImage(currentIndex);
+
+});
+
+}
 
 /* =========================
-   갤러리 팝업
+BGM
 ========================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+const bgm =
+document.getElementById("bgm");
 
-    const galleryImages =
-    document.querySelectorAll(".gallery-img");
+const musicBtn =
+document.getElementById("musicBtn");
 
-    const galleryModal =
-    document.getElementById("galleryModal");
+let isPlaying = false;
 
-    const modalImage =
-    document.getElementById("modalImage");
+if(bgm && musicBtn){
 
-    const galleryClose =
-    document.getElementById("galleryClose");
+musicBtn.addEventListener("click",()=>{
 
-    const galleryCount =
-    document.getElementById("galleryCount");
+if(isPlaying){
 
-    const prevBtn =
-    document.getElementById("prevBtn");
+bgm.pause();
 
-    const nextBtn =
-    document.getElementById("nextBtn");
+musicBtn.innerHTML =
+"▶";
 
-    if(
-        !galleryModal ||
-        !modalImage ||
-        !galleryClose ||
-        !galleryCount ||
-        !prevBtn ||
-        !nextBtn
-    ){
-        return;
-    }
+}else{
 
-    let currentIndex = 0;
+bgm.play();
 
-    function showImage(index){
+musicBtn.innerHTML =
+"⏸";
 
-        modalImage.src =
-        galleryImages[index].src;
+}
 
-        galleryCount.innerText =
-        `${index + 1} / ${galleryImages.length}`;
+isPlaying = !isPlaying;
 
-    }
+});
 
-    galleryImages.forEach((img,index)=>{
-
-        img.addEventListener("click",()=>{
-
-            currentIndex = index;
-
-            showImage(currentIndex);
-
-            galleryModal.style.display = "flex";
-
-        });
-
-    });
-
-    galleryClose.addEventListener("click",()=>{
-
-        galleryModal.style.display = "none";
-
-    });
-
-    galleryModal.addEventListener("click",(e)=>{
-
-        if(e.target === galleryModal){
-
-            galleryModal.style.display = "none";
-
-        }
-
-    });
-
-    prevBtn.addEventListener("click",(e)=>{
-
-        e.stopPropagation();
-
-        currentIndex--;
-
-        if(currentIndex < 0){
-
-            currentIndex =
-            galleryImages.length - 1;
-
-        }
-
-        showImage(currentIndex);
-
-    });
-
-    nextBtn.addEventListener("click",(e)=>{
-
-        e.stopPropagation();
-
-        currentIndex++;
-
-        if(currentIndex >= galleryImages.length){
-
-            currentIndex = 0;
-
-        }
-
-        showImage(currentIndex);
-
-    });
+}
 
 });
