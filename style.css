@@ -658,3 +658,9 @@ object-fit:contain;
 pointer-events:none;
 
 }
+
+html,
+body{
+    touch-action: pan-y;
+    overscroll-behavior: contain;
+}
