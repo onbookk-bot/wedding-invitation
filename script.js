@@ -340,7 +340,7 @@ musicBtn.innerHTML =
 bgm.play();
 
 musicBtn.innerHTML =
-"⬛";
+"🎵";
 
 }
 
