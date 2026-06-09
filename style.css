@@ -26,6 +26,13 @@ max-height:85%;
 
 object-fit:contain;
 
+/* 추가 */
+touch-action: pan-y;
+user-select:none;
+-webkit-user-drag:none;
+
+
+
 }
 
 #galleryClose{

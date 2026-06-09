@@ -132,6 +132,8 @@ nextBtn
 
 let currentIndex = 0;
 
+
+
 function showImage(index){
 
 modalImage.src =
@@ -201,12 +203,115 @@ currentIndex = 0;
 
 }
 
+
+
+modalImage.addEventListener("touchstart",(e)=>{
+
+    
+
+startX = e.touches[0].clientX;
+
+});
+
+modalImage.addEventListener("touchend",(e)=>{
+
+const endX = e.changedTouches[0].clientX;
+
+const diff = startX - endX;
+
+if(diff > 50){
+
+currentIndex++;
+
+if(currentIndex >= galleryImages.length){
+
+currentIndex = 0;
+
+}
+
+showImage(currentIndex);
+
+}
+
+if(diff < -50){
+
+currentIndex--;
+
+if(currentIndex < 0){
+
+currentIndex = galleryImages.length - 1;
+
+}
+
+showImage(currentIndex);
+
+}
+
+});
+
+
+
 showImage(currentIndex);
 
 });
 
+
+
+
+
 }
 
+
+
+let startX = 0;
+
+modalImage.addEventListener("touchstart",(e)=>{
+
+    startX =
+    e.touches[0].clientX;
+
+});
+
+modalImage.addEventListener("touchend",(e)=>{
+
+    const endX =
+    e.changedTouches[0].clientX;
+
+    const diff =
+    startX - endX;
+
+    // 왼쪽으로 밀기
+    if(diff > 50){
+
+        currentIndex++;
+
+        if(currentIndex >= galleryImages.length){
+
+            currentIndex = 0;
+
+        }
+
+        showImage(currentIndex);
+
+    }
+
+    // 오른쪽으로 밀기
+    if(diff < -50){
+
+        currentIndex--;
+
+        if(currentIndex < 0){
+
+            currentIndex =
+            galleryImages.length - 1;
+
+        }
+
+        showImage(currentIndex);
+
+    }
+
+});
 /* =========================
 BGM
 ========================= */
@@ -246,3 +351,23 @@ isPlaying = !isPlaying;
 }
 
 });
+
+
+modalImage.addEventListener("touchmove",(e)=>{
+e.preventDefault();
+},{ passive:false });
+
+
+
+document.addEventListener("click", () => {
+
+    const bgm =
+    document.getElementById("bgm");
+
+    if(bgm){
+
+        bgm.play();
+
+    }
+
+},{ once:true });
