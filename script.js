@@ -130,173 +130,55 @@ prevBtn &&
 nextBtn
 ){
 
-let currentIndex = 0;
+    let currentIndex = 0;
+    let startX = 0;
 
+    function showImage(index){
 
+        modalImage.src = galleryImages[index].src;
 
-function showImage(index){
-
-modalImage.src =
-galleryImages[index].src;
-
-galleryCount.innerText =
-`${index + 1} / ${galleryImages.length}`;
-
-}
-
-galleryImages.forEach((img,index)=>{
-
-img.addEventListener("click",()=>{
-
-currentIndex = index;
-
-showImage(currentIndex);
-
-galleryModal.style.display = "flex";
-
-});
-
-});
-
-galleryClose.addEventListener("click",()=>{
-
-galleryModal.style.display = "none";
-
-});
-
-galleryModal.addEventListener("click",(e)=>{
-
-if(e.target === galleryModal){
-
-galleryModal.style.display = "none";
-
-}
-
-});
-
-prevBtn.addEventListener("click",(e)=>{
-
-e.stopPropagation();
-
-currentIndex--;
-
-if(currentIndex < 0){
-
-currentIndex =
-galleryImages.length - 1;
-
-}
-
-showImage(currentIndex);
-
-});
-
-nextBtn.addEventListener("click",(e)=>{
-
-e.stopPropagation();
-
-currentIndex++;
-
-if(currentIndex >= galleryImages.length){
-
-currentIndex = 0;
-
-}
-
-
-
-modalImage.addEventListener("touchstart",(e)=>{
-
-    
-
-startX = e.touches[0].clientX;
-
-});
-
-modalImage.addEventListener("touchend",(e)=>{
-
-const endX = e.changedTouches[0].clientX;
-
-const diff = startX - endX;
-
-if(diff > 50){
-
-currentIndex++;
-
-if(currentIndex >= galleryImages.length){
-
-currentIndex = 0;
-
-}
-
-showImage(currentIndex);
-
-}
-
-if(diff < -50){
-
-currentIndex--;
-
-if(currentIndex < 0){
-
-currentIndex = galleryImages.length - 1;
-
-}
-
-showImage(currentIndex);
-
-}
-
-});
-
-
-
-showImage(currentIndex);
-
-});
-
-
-
-
-
-}
-
-
-
-let startX = 0;
-
-modalImage.addEventListener("touchstart",(e)=>{
-
-    startX =
-    e.touches[0].clientX;
-
-});
-
-modalImage.addEventListener("touchend",(e)=>{
-
-    const endX =
-    e.changedTouches[0].clientX;
-
-    const diff =
-    startX - endX;
-
-    // 왼쪽으로 밀기
-    if(diff > 50){
-
-        currentIndex++;
-
-        if(currentIndex >= galleryImages.length){
-
-            currentIndex = 0;
-
-        }
-
-        showImage(currentIndex);
+        galleryCount.innerText =
+        `${index + 1} / ${galleryImages.length}`;
 
     }
 
-    // 오른쪽으로 밀기
-    if(diff < -50){
+    // 갤러리 클릭
+    galleryImages.forEach((img,index)=>{
+
+        img.addEventListener("click",()=>{
+
+            currentIndex = index;
+
+            showImage(currentIndex);
+
+            galleryModal.style.display = "flex";
+
+        });
+
+    });
+
+    // 닫기
+    galleryClose.addEventListener("click",()=>{
+
+        galleryModal.style.display = "none";
+
+    });
+
+    // 배경 클릭시 닫기
+    galleryModal.addEventListener("click",(e)=>{
+
+        if(e.target === galleryModal){
+
+            galleryModal.style.display = "none";
+
+        }
+
+    });
+
+    // 이전 버튼
+    prevBtn.addEventListener("click",(e)=>{
+
+        e.stopPropagation();
 
         currentIndex--;
 
@@ -309,9 +191,74 @@ modalImage.addEventListener("touchend",(e)=>{
 
         showImage(currentIndex);
 
+    });
+
+    // 다음 버튼
+    nextBtn.addEventListener("click",(e)=>{
+
+        e.stopPropagation();
+
+        currentIndex++;
+
+        if(currentIndex >= galleryImages.length){
+
+            currentIndex = 0;
+
+        }
+
+        showImage(currentIndex);
+
+    });
+
+    // 스와이프
+    modalImage.addEventListener("touchstart",(e)=>{
+
+        startX = e.touches[0].clientX;
+
+    });
+
+    modalImage.addEventListener("touchend",(e)=>{
+
+    const endX = e.changedTouches[0].clientX;
+
+    const diff = startX - endX;
+
+    if(diff > 50){
+
+        currentIndex++;
+
+        if(currentIndex >= galleryImages.length){
+            currentIndex = 0;
+        }
+
+        showImage(currentIndex);
+
+    }
+
+    else if(diff < -50){
+
+        currentIndex--;
+
+        if(currentIndex < 0){
+            currentIndex = galleryImages.length - 1;
+        }
+
+        showImage(currentIndex);
+
     }
 
 });
+
+
+
+showImage(currentIndex);
+
+}
+
+
+
+
+
 /* =========================
 BGM
 ========================= */
@@ -353,9 +300,6 @@ isPlaying = !isPlaying;
 });
 
 
-modalImage.addEventListener("touchmove",(e)=>{
-e.preventDefault();
-},{ passive:false });
 
 
 
